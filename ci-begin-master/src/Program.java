@@ -1,6 +1,8 @@
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 
 /**
@@ -106,10 +108,45 @@ public class Program {
     public static void main(String[] args) {
         JFrame window = new JFrame();
         window.setTitle("Game Touhou");
-        window.setSize(800, 600); //px
+//        window.setSize(800, 600); //px
         window.setResizable(false);
         window.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        window.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode()==KeyEvent.VK_UP){
+                    KeyEventPress.IsUpPress=true;
+                }
+                if (e.getKeyCode()==KeyEvent.VK_LEFT){
+                    KeyEventPress.IsLeftPress=true;
+                }
+                if (e.getKeyCode()==KeyEvent.VK_DOWN){
+                    KeyEventPress.IsDownPress=true;
+                }
+                if (e.getKeyCode()==KeyEvent.VK_RIGHT){
+                    KeyEventPress.IsRightPress=true;
+                }
 
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                if (e.getKeyCode()==KeyEvent.VK_UP){
+                    KeyEventPress.IsUpPress=false;
+                }
+                if (e.getKeyCode()==KeyEvent.VK_LEFT){
+                    KeyEventPress.IsLeftPress=false;
+                }
+                if (e.getKeyCode()==KeyEvent.VK_DOWN){
+                    KeyEventPress.IsDownPress=false;
+                }
+                if (e.getKeyCode()==KeyEvent.VK_RIGHT){
+                    KeyEventPress.IsRightPress=false;
+                }
+
+            }
+        });
         gamepanel panel = new gamepanel();
         panel.setBackground(Color.blue);
         window.add(panel);
@@ -118,7 +155,11 @@ public class Program {
 //        System.out.println(playerImage.getHeight());
         long timemili = System.currentTimeMillis();
         System.out.println(timemili / 60 / 60 / 24 / 1000 / 365);
+
+        panel.setPreferredSize(new Dimension(800,600));
+        window.pack();
         window.setVisible(true);
+
         panel.gameloop();// start game
         //alt enter : fix code
         //fn+shift+f6: rename

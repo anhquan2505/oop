@@ -1,3 +1,5 @@
+package game;
+
 public class Vector2D {
     public double X;
     public double Y;
@@ -60,15 +62,13 @@ public class Vector2D {
         return X;
     }
 
-    //    public static void main(String[] args) {
-//        Vector2D v1 = new Vector2D(3,3);
-//        System.out.println(v1.getLength()+ " "+Math.sqrt(18));
-//        System.out.println(v1.getAngle()+" "+(Math.PI / 4));
-//        v1.setLength(10);
-//        System.out.println(v1.getLength()+" "+10);
-//        v1.setAngle(Math.PI / 6);
-//        System.out.println(v1.getAngle()+" "+ (Math.PI / 6));
-//    }
+    @Override
+    public String toString() {
+        return
+                "X=" + X +
+                ", Y=" + Y
+                ;
+    }
 }
 
 

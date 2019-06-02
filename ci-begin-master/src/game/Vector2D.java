@@ -1,75 +1,62 @@
 package game;
 
 public class Vector2D {
-    public double X;
-    public double Y;
-    public double rate;
+    public double x;
+    public double y;
+
 
     public Vector2D(){
         this(0,0);
     }
     public Vector2D(double X,double Y){
-        this.X=X;
-        this.Y=Y;
+        this.x =X;
+        this.y =Y;
     }
-    public void add(double X,double Y){
-        this.X+=X;
-        this.Y+=Y;
 
-    }
-    public void subtract(double X,double Y){
-        this.X-=X;
-        this.Y-=Y;
-    }
-    public void scale(double rate){
-        this.X *=rate;
-        this.Y *=rate;
-
-    }
     public Vector2D clone(){
-        return new Vector2D(X,Y);
+        return new Vector2D(x, y);
     }
     public void set(double X,double Y){
-        this.X=X;
-        this.Y=Y;
+        this.x =X;
+        this.y =Y;
     }
 
     public double getLength() {
-        return Math.sqrt(X*X+Y*Y);
+        return Math.sqrt(x * x + y * y);
     }
 
     public void setLength(double Length) {
         double oldLength=this.getLength();
         if (oldLength!=0) {
-            X = X * Length / oldLength;
-            Y = Y * Length / oldLength;
+            x = x * Length / oldLength;
+            y = y * Length / oldLength;
         }
     }
 
     public double getAngle() {
-        return Math.atan(Y/X);
+        return Math.atan(y / x);
     }
 
     public void setAngle(double angle) {
         double Length = this.getLength();
         if (Length!=0) {
-        X=Math.cos(angle)*Length;
-        Y=Math.sin(angle)*Length;
+        x =Math.cos(angle)*Length;
+        y =Math.sin(angle)*Length;
         }
     }
 
     public double getX() {
-        return X;
+        return x;
     }
 
     @Override
     public String toString() {
         return
-                "X=" + X +
-                ", Y=" + Y
+                "x=" + x +
+                ", y=" + y
                 ;
     }
 }
 
 
-//this để trỏ đến phương thức
+

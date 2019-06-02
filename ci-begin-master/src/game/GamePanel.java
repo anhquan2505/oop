@@ -1,4 +1,7 @@
 package game;
+import game.enemy.Enemy;
+import game.player.Player;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -11,28 +14,25 @@ public class GamePanel extends JPanel {
     public GamePanel(){
         // tự động gọi lại tất cả hàm tạo cấp cha nếu k khai báo GamePanel
         fps=0;
-        enemy=new Enemy();
-        player=new Player();
         background= new Background();
+        enemy=new Enemy();
+
+        player=new Player();
+
     }
 
     @Override
     public void paint(Graphics g) {
-//        super.paint(g);
 
         g.setColor(Color.WHITE);
-        g.fillRect(0,0,800,600);
-        background.render(g);
-        player.render(g);
-        enemy.render(g);
+        g.fillRect(0,0,Settings.GAME_WIDTH,Settings.GAME_HEIGH);
+        GameObject.renderAll(g);
         g.setColor(Color.red);
         g.drawString("fps:"+ fps ,700,40);
     }
 
     public void runall(){
-        background.run();
-        player.run();
-        enemy.run();
+        GameObject.runAll();//bulletRun()
     }
 
     public void gameloop(){

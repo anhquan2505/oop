@@ -1,31 +1,22 @@
 package game;
 
-import tklibs.Mathx;
 import tklibs.SpriteUtils;
 
-import java.awt.*;
-import java.awt.image.BufferedImage;
+public class Background extends GameObject{
 
-public class Background {
-    BufferedImage img;
-    Vector2D background;
     int bgh;
-    final int SPEED=10;
+
     public Background(){
-        img= SpriteUtils.loadImage("assets/images/Background/0.png");
-        background= new Vector2D(0,600-3109);
-        bgh=img.getHeight();
-        background.Y=600-bgh;
+        image= SpriteUtils.loadImage("assets/images/Background/0.png");
+        position.set(0,Settings.GAME_HEIGH-Settings.BACKGROUND_HEIGH);
+        bgh=image.getHeight();
+        position.y =Settings.GAME_HEIGH-bgh;
     }
-    public void render(Graphics g){
-        g.drawImage(img,(int)background.X,(int)background.Y,null);
-
-
-    }
+    @Override
     public void run(){
-        background.Y=background.Y+5;
-        if(background.Y>=0){
-            background.Y=0;
+        position.y += Settings.BACKGROUND_IMAGE;
+        if(position.y >=0){
+            position.y =0;
         }
     }
 }

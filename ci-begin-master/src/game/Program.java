@@ -87,7 +87,7 @@ public class Program {
         window.add(panel);
         long timemili = System.currentTimeMillis();
         System.out.println(timemili / 60 / 60 / 24 / 1000 / 365);
-        panel.setPreferredSize(new Dimension(800,600));
+        panel.setPreferredSize(new Dimension(Settings.GAME_WIDTH,Settings.GAME_HEIGH));
         window.pack();
         window.setVisible(true);
         panel.gameloop();// start game

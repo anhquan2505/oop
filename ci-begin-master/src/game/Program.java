@@ -1,9 +1,12 @@
 package game;
 
+import game.player.Player;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.lang.reflect.Type;
 
 /**
  * Created by huynq on 7/4/17.
@@ -24,7 +27,32 @@ import java.awt.event.KeyEvent;
 //            i++;
 //        }
 public class Program {
+    public static int parseInt(String s) throws Exception{
+        if(s==null){
+            throw new Exception("String null");
+        }
+        return Integer.parseInt(s);
+    }
+//    public static <E>E getSomething(Class<E> cls){
+////        try{
+////            //return new "String"
+////        return cls.getConstructor().newInstance();
+////        }
+////        catch (Exception ex){
+////            return null;
+////        }
+//    }
     public static void main(String[] args) {
+
+//        String s=getSomething(String.class);
+//        GameObject object= getSomething(GameObject.class);
+//        Class<GameObject> gameObjectClass=GameObject.class;
+//        Class<Player>playerClass=Player.class;
+//        System.out.println(gameObjectClass.isAssignableFrom(playerClass));
+//        System.out.println(gameObjectClass.isAssignableFrom(String.class));
+//
+//        System.out.println(s);
+//        System.out.println(object);
         JFrame window = new JFrame();
         //        ArrayList<String> strings = new ArrayList<>();
 //        strings.add("hello");
@@ -60,6 +88,7 @@ public class Program {
                 if (e.getKeyCode()==KeyEvent.VK_SPACE){
                     KeyEventPress.IsFirePress =true;
                 }
+                KeyEventPress.IsPress=true;
             }
 
             @Override
@@ -79,6 +108,7 @@ public class Program {
                 if (e.getKeyCode()==KeyEvent.VK_SPACE){
                     KeyEventPress.IsFirePress =false;
                 }
+                KeyEventPress.IsPress=false;
 
             }
         });

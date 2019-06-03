@@ -13,9 +13,28 @@ public class Vector2D {
         this.y =Y;
     }
 
-    public Vector2D clone(){
+
+    public void add(double x, double y) {
+        this.x += x;
+        this.y += y;
+    }
+
+    public void substract(double x, double y) {
+        this.x -= x;
+        this.y -= y;
+    }
+
+    public void scale(double rate) {
+        this.x *= rate;
+        this.y *= rate;
+    }
+
+    public Vector2D clone() {
         return new Vector2D(x, y);
     }
+
+
+
     public void set(double X,double Y){
         this.x =X;
         this.y =Y;

@@ -11,10 +11,11 @@ public class Background extends GameObject{
         position.set(0,Settings.GAME_HEIGH-Settings.BACKGROUND_HEIGH);
         bgh=image.getHeight();
         position.y =Settings.GAME_HEIGH-bgh;
+        velocity.set(0,Settings.BACKGROUND_IMAGE);
     }
     @Override
     public void run(){
-        position.y += Settings.BACKGROUND_IMAGE;
+        super.run();
         if(position.y >=0){
             position.y =0;
         }

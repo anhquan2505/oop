@@ -2,19 +2,30 @@ package game.enemy;
 import game.GameObject;
 import game.Settings;
 import game.Vector2D;
+import game.physics.BoxCollider;
 import tklibs.Mathx;
 import tklibs.SpriteUtils;
 
 public class Enemy extends GameObject {
     int count,count2;
+    public int hp;
     public Enemy(){
         image=SpriteUtils.loadImage("assets/images/enemies/level0/black/1.png");
         position.set(0,0);
+        velocity.set(0,3);
+        hitbox=new BoxCollider(this,34,50);
+        hp=50;
+    }
+    public void takeDamage(int damage){
+        hp-=damage;
+        if(hp<=0){
+            hp=0;
+            this.deactive();
+        }
     }
     @Override
     public void run(){
         this.move();
-
         this.fire();
     }
 
@@ -43,7 +54,6 @@ public class Enemy extends GameObject {
     }
 
     private void move() {
-//        position.y+=2;
         count2 ++;
         if (count2>70) {
             position.x = Mathx.random(0, 360);

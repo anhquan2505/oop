@@ -9,7 +9,12 @@ public class Settings {
     //player
     public static final int PLAYER_WIDTH = 32;
     public static final int PLAYER_HEIGH = 48;
-    public static final int PLAYER_BULLET_RUN = 5;
+    public static final double PLAYER_BULLET_START_ANGEL = -60;
+    public static final double PLAYER_BULLET_END_ANGEL = -120;
+    public static final int PLAYER_BULLET_START_X = 20;
+    public static final int PLAYER_BULLET_END_X = -20;
+    public static final int PLAYER_BULLET_NUMBER_BULLETS =20 ;
+
     //enemy
 
     public static final int ENEMY_BULLET_RUN= 5;
